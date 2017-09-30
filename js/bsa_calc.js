@@ -18,8 +18,20 @@ function calculate() {
     // inch to cm: 1 in = 2.54 cm
 
     // ==========================================
-    // Todo: Perform conversion calculations here
+    function poundToKilo(pound) {
+        var kilo = pound * 0.454;
+        return kilo;
+    }
 
+    function inchToMeter(inches) {
+        var meterHeight = inches * 0.0254;
+        return meterHeight;
+    }
+
+    function inchToCm(inches) {
+        var centiHeight = inches * 2.54;
+        return centiHeight;
+    }
     // -------------------------------
     // Body Surface Area (BSA)
     // -------------------------------
@@ -28,7 +40,7 @@ function calculate() {
 
     // ==========================================
     // Todo: Perform BSA calculation here
-
+        BSA = Math.sqrt((inchToCm(height) * poundToKilo(weight)) / 3600);
     // -------------------------------
     // Ideal Body Weight (IBW)
     // -------------------------------
@@ -36,16 +48,14 @@ function calculate() {
     var IBW = 0;
 
     if ( female ) {
-
         // ==========================================
-        // Todo: Perform female IBW calculation here
-
+            IBW = 45.5 + 2.3 * (height - 60);
 
     } else if ( male ) {
 
         // ==========================================
         // Todo: Perform male IBW calculation here
-
+            IBW = 50 + 2.3 * (height - 60);
     }
 
     // -------------------------------
@@ -57,7 +67,7 @@ function calculate() {
     // ==========================================
     // Todo: Perform BMI calculation here
 
-
+        BMI = poundToKilo(weight) / Math.sqrt(inchToMeter(height));
 
     // Do not modify this function call
     display( BSA, IBW, BMI );
